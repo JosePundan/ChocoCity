@@ -1,0 +1,745 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHOCOLATE CITY Lucena | Premium Imported Sweets</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <a class="logo" onclick="switchPage('home')">
+                <i class="fa-solid fa-cookie-bite"></i> CHOCOLATE CITY<span>.</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a class="nav-link active" data-target="home" onclick="switchPage('home')">Home</a></li>
+                <li><a class="nav-link" data-target="shop" onclick="switchPage('shop')">Shop Collection</a></li>
+                <li><a class="nav-link" data-target="about" onclick="switchPage('about')">About Us</a></li>
+                <li><a class="nav-link" data-target="contact" onclick="switchPage('contact')">Contact Us</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="cart-btn" id="openCartBtn">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span>Cart</span>
+                    <span class="cart-count-badge" id="cartCount">0</span>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Views Container -->
+    <main>
+
+        <!-- PAGE 1: HOME PAGE VIEW -->
+        <section class="page-view active" id="page-home">
+            <div class="hero">
+                <div class="hero-content">
+                    <p class="small-text">PREMIUM IMPORTED SWEETS</p>
+                    <h1>
+                        CHOCOLATE.<br>
+                        CITY.<br>
+                        <span>LUCENA.</span>
+                    </h1>
+                    <p class="hero-description">
+                        Discover carefully selected imported chocolates, candies, and artisanal drinks crafted for true connoisseurs—at direct wholesale prices lower than shopping malls.
+                    </p>
+                    <div class="hero-btns">
+                        <button class="main-btn" onclick="switchPage('shop')">
+                            Shop Collection <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <button class="secondary-btn" onclick="switchPage('about')">
+                            Our Story
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fa-solid fa-plane-arrival feature-icon"></i>
+                        <h3>100% Directly Imported</h3>
+                        <p>Authentic Swiss, European, and Japanese confections delivered weekly directly to Lucena.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-tags feature-icon"></i>
+                        <h3>Lower Than Mall Prices</h3>
+                        <p>Enjoy wholesale rate savings compared to standard shopping center confectionery prices.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fa-solid fa-mug-hot feature-icon"></i>
+                        <h3>Fresh Cocoa Brews</h3>
+                        <p>Artisanal hot chocolates, iced beverages, and cold brews prepared fresh daily on site.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 2: PRODUCTS / SHOP PAGE VIEW -->
+        <section class="page-view" id="page-shop">
+            <div class="container" style="padding-top: 40px; padding-bottom: 80px;">
+                <div class="section-title">
+                    <p>01 / CURATED MENU</p>
+                    <h2>Signature Sweets & Drinks</h2>
+                    <span>Explore our full range of imported treats and beverages.</span>
+                </div>
+
+                <!-- Search and Category Filters Header Bar -->
+                <div class="shop-header-bar">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="searchInput" placeholder="Search sweets, chocolates, drinks..." onkeyup="filterProducts()">
+                    </div>
+
+                    <div class="category-filter">
+                        <button class="filter-btn active" data-filter="all" onclick="setCategory('all', this)">All Items</button>
+                        <button class="filter-btn" data-filter="chocolate" onclick="setCategory('chocolate', this)">Chocolates</button>
+                        <button class="filter-btn" data-filter="candy" onclick="setCategory('candy', this)">Candies</button>
+                        <button class="filter-btn" data-filter="drinks" onclick="setCategory('drinks', this)">Artisan Drinks</button>
+                        <button class="filter-btn" data-filter="spread" onclick="setCategory('spread', this)">Spreads</button>
+                    </div>
+                </div>
+
+
+
+                <!-- Dynamic Shop Product Grid -->
+                <div class="product-grid" id="productGrid">
+                </div>
+        </section>
+
+        
+        <!-- PAGE 3: ABOUT US PAGE VIEW -->
+        <section class="page-view" id="page-about">
+            <div class="container">
+                <div class="about-section">
+                    <div class="about-grid">
+                        <div class="about-text-content">
+                            <p class="tagline">ABOUT CHOCOLATE CITY STORE</p>
+                            <h2>Good chocolate doesn't need to be complicated.</h2>
+                            <p class="description">
+                                Established with a love for authentic cocoa, Our vision is simple: to makE chocolates accessible locally without the heavy retail markup found in big shopping centers.
+                            </p>
+
+                            <div class="history-box">
+                                <h4><i class="fa-solid fa-timeline"></i> Store Profile & Heritage</h4>
+                                <p>CHCOOLATE CITY has served thousands of sweet lovers across Quezon Province with directly imported items, fresh artisan brews, and curated candy gift boxes.</p>
+                            </div>
+
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <h3>100%</h3>
+                                    <p>Authentic</p>
+                                </div>
+                                <div class="stat-card">
+                                    <h3>50+</h3>
+                                    <p>Varieties</p>
+                                </div>
+                                <div class="stat-card">
+                                    <h3>₱ Lower</h3>
+                                    <p>Than Malls</p>
+                                </div>
+                            </div>
+                        </div>
+
+                            <div class="about-logo">
+                                <img src="logo-removebg-preview.png" alt="Chocolate City Logo">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+<!-- PAGE 4: CONTACT US & STORE LOCATION -->
+<section class="page-view" id="page-contact">
+    <div class="container">
+        <div class="contact-section">
+
+            <!-- CONTACT INFORMATION AND FORM -->
+            <div class="contact-grid">
+
+                <!-- LEFT SIDE: CONTACT INFORMATION -->
+                <div class="contact-info">
+
+                    <p class="small-text">GET IN TOUCH</p>
+
+                    <h2>Visit Us or Place an Order Direct</h2>
+
+                    <p class="lead">
+                        Have questions or custom catering requests?
+                        Send us a message or reach out through our
+                        channels below.
+                    </p>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+
+                        <div class="info-details">
+                            <h4>Store Address</h4>
+                            <p>
+                                Quezon Avenue, Brgy. Poblacion,
+                                Lucena City, Quezon 4301, Philippines
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/chocolatecitylucena"
+                           class="social-btn"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT SIDE: CONTACT FORM -->
+                <div class="contact-form" id="form-success">
+
+                    <h3>Send Us a Message</h3>
+
+                    <div class="form-alert">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Thank you! Your message has been routed successfully.
+                    </div>
+
+                   <form id="contactForm" onsubmit="handleContactSubmit(event)">
+
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text"
+                                   id="fullName"
+                                   name="fullName"
+                                   class="form-control"
+                                   placeholder="e.g. Maria Santos"
+                                   required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="emailAddr">Email Address</label>
+                            <input type="email"
+                                   id="emailAddr"
+                                   name="email"
+                                   class="form-control"
+                                   placeholder="e.g. maria@example.com"
+                                   required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phoneNum">Contact Number</label>
+                            <input type="tel"
+                                   id="phoneNum"
+                                   name="phone"
+                                   class="form-control"
+                                   placeholder="09123456789"
+                                   required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message"
+                                      name="message"
+                                      class="form-control"
+                                      placeholder="How can we help you today?"
+                                      required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Send Message
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- STORE LOCATION SECTION -->
+            <div class="location-section">
+
+                <div class="section-title">
+                    <p>02 / STORE LOCATION</p>
+
+                    <h2>Find Us in Lucena City</h2>
+
+                    <span>
+                        Conveniently located in the heart of Lucena City.
+                        Visit us and enjoy our imported sweets and drinks!
+                    </span>
+                </div>
+
+                <!-- GOOGLE MAP -->
+                <div class="map-container">
+
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3872.31093550459!2d121.61101467509424!3d13.940082686471685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd4b0a20d1e59d%3A0x13baa7ca4d7d1d78!2sChocolate%20City%20Lucena!5e0!3m2!1sen!2sph!4v1794143604395!5m2!1sen!2sph"
+                        width="100%"
+                        height="400"
+                        style="border:0;"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin">
+                    </iframe>
+
+                </div>
+
+                <div class="hours-badge">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Quezon Avenue, Brgy. Poblacion, Lucena City
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    </main>
+
+    <!-- Shopping Cart Slide-out Drawer Modal -->
+    <div class="modal-overlay" id="cartModal">
+        <div class="cart-sidebar">
+            <div class="cart-header">
+                <h3>Your Cart (<span id="cartHeaderCount">0</span>)</h3>
+                <button class="close-cart" id="closeCartBtn">&times;</button>
+            </div>
+
+            <!-- Free Shipping Bar (Threshold: ₱1,000) -->
+            <div class="shipping-progress-container">
+                <div class="shipping-text">
+                    <span id="shippingText">Add ₱1,000 for FREE delivery!</span>
+                    <span id="shippingPct">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="shippingBarFill"></div>
+                </div>
+            </div>
+
+            <div class="cart-body" id="cartItemsContainer">
+                <div class="empty-cart-msg">
+                    <i class="fa-solid fa-basket-shopping" style="font-size: 40px; margin-bottom: 10px; opacity: 0.5;"></i>
+                    <p>Your cart is currently empty.</p>
+                </div>
+            </div>
+
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>Total Amount:</span>
+                    <span id="cartTotal">₱0</span>
+                </div>
+                <button class="checkout-btn" onclick="openCheckoutModal()">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick View Product Detail Modal -->
+    <div class="modal-center-overlay" id="quickViewModal">
+        <div class="modal-box">
+            <button class="close-btn" onclick="closeQuickView()">&times;</button>
+            <div class="qv-grid" id="qvContent">
+                <!-- Quick view details dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Receipt Confirmation Modal -->
+    <div class="modal-center-overlay" id="checkoutModal">
+        <div class="modal-box">
+            <button class="close-btn" onclick="closeCheckoutModal()">&times;</button>
+            <div class="receipt-header">
+                <i class="fa-solid fa-circle-check"></i>
+                <h3 style="font-family: var(--font-heading); font-size: 24px; color: var(--text-light);">Order Confirmed!</h3>
+                <p style="color: var(--text-muted); font-size: 13px; margin-top: 5px;">Thank you for shopping at CHOCOLATE CITY Lucena.</p>
+            </div>
+            
+            <div class="receipt-items" id="receiptItems">
+                <!-- Items list -->
+            </div>
+
+            <div class="receipt-total">
+                <span>Total Amount Paid:</span>
+                <span id="receiptTotal">₱0</span>
+            </div>
+
+            <button class="submit-btn" style="margin-top: 25px;" onclick="closeCheckoutModal()">Done</button>
+        </div>
+    </div>
+
+    <!-- Toast Popup Notification -->
+    <div class="toast" id="toastNotification">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMessage">Item added to cart!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h2>CHOCOLATE CITY.</h2>
+                <p>Premium Imported Sweets & Artisanal Drinks in Lucena City. Cheaper than mall retail prices.</p>
+            </div>
+
+            <div>
+                <div class="footer-links-title">Quick Links</div>
+                <div class="footer-links">
+                    <a onclick="switchPage('home')">Home</a>
+                    <a onclick="switchPage('shop')">Shop Collection</a>
+                    <a onclick="switchPage('about')">About Us</a>
+                    <a onclick="switchPage('contact')">Contact Us</a>
+                </div>
+            </div>
+
+            <div>
+                <div class="footer-links-title">Categories</div>
+                <div class="footer-links">
+                    <a onclick="switchPage('shop'); setCategory('chocolate')">Imported Chocolates</a>
+                    <a onclick="switchPage('shop'); setCategory('candy')">Gummy & Hard Candies</a>
+                    <a onclick="switchPage('shop'); setCategory('drinks')">Hot & Cold Cocoa Drinks</a>
+                    <a onclick="switchPage('shop'); setCategory('spread')">Chocolates and Creamy Spreads</a>
+                </div>
+            </div>
+        </div>
+
+        <p class="copyright">
+            © 2026 CHOCOLATE CITY - Lucena | HTML created by Jose Pundan
+        </p>
+    </footer>
+
+    <!-- Interactive JavaScript Logic -->
+    <script>
+                // Products Catalog Data
+        const productsData = [
+            { id: 1, name: 'KitKat Chunky Bar', category: 'chocolate', price: 90, tag: 'Bestseller', desc: 'for an desserts cravings. A classic chocolate bar with crispy crunchy pieces.', img: "kitkat-chunky.jpg" },
+            { id: 2, name: 'Snickers Fun Size', category: 'chocolate', price: 150, tag: 'Imported', desc: ' Also A classic chocolate dessert. But with a fun size.', img: "snickers-fun-size.jpg" },
+            { id: 3, name: 'Toblerone', category: 'chocolate', price: 100, tag: 'Popular', desc: 'The most classic chcocolate. Perfect for chocolate cravings.', img: "Toblerone.jpg" },
+            { id: 4, name: 'Fruit Flavored Candy', category: 'candy', price: 80, tag: 'Sweet', desc: 'A mix fruit candy. for an candy fruit cravings.', img: "fruit-flavored-candy.jpg" },
+            { id: 5, name: 'Mixed Fruit Candy', category: 'candy', price: 95, tag: 'Fresh', desc: ' Classic mixed fruit candy.', img: "mixed-fruit-candy.jpg"  },
+            { id: 6, name: 'Dried Cranberries', category: 'candy', price: 100, tag: 'Rich', desc: 'Sweet and chewy dried cranberries that are great for snacking.', img: "dried-cranberries.jpg" },
+            { id: 7, name: 'Cadbury Hot Chocolate', category: 'drinks', price: 200, tag: 'Hot Brew', desc: ' A choco and cocoa drink. it can be Hot or Cold perfect for a cold season like the upcoming Christmas.', img: "cadbury-hot-chocolate.jpg" },
+            { id: 8, name: 'Galaxy Hot Chocolate', category: 'drinks', price: 290, tag: 'Chilled', desc: 'A variety of a hot chocolate drink. perfect also in cold season for some hot chocolate.', img: "galaxy-hot-chocolate.jpg" },
+            { id: 9, name: 'Nutella Spread', category: 'spread', price: 100, tag: 'Original', desc: ' A creamy hazelnut and cocoa spread perfect for bread and desserts.', img: "nutella.jpg" },
+            { id: 10, name: 'Cadbury Milk Chocolate Spred', category: 'spread', price: 189, tag: 'Flavorful', desc: 'A smooth and creamy chocolate spread with a delicious milk chocolate taste.', img: "cadbury-milk-chocolate-spread.jpg" },
+            { id: 11, name: 'Hersheys Special Dark', category: 'chocolate', price: 95, tag: 'Dark', desc: 'A variety of hot chocolate. perfect for a cold season too.', img: "hersheys-special-dark.jpg" },
+            { id: 12, name: 'Crunch Chocolate', category: 'chocolate', price: 70, tag: 'Tasty', desc: ' A classic chocolate bar with crispy crunchy pieces.', img: "crunch-chocolate.jpg" },
+            { id: 13, name: 'Pistachio Dubai Chocolate', category: 'chocolate', price: 100, tag: 'New Item', desc: 'A delicious chocolate treat with pistachio-inspired flavor.', img: "pistachio-dubai-chocolate.jpg" },
+            { id: 14, name: 'Reeses Creamy Peanut Butter', category: 'spread', price: 160, tag: 'Creamy', desc: 'A smooth and creamy Peanut spread perfect for a toasted bread.', img: "reeses-creamy-peanut-butter.jpg" },
+            { id: 15, name: 'Super Meal Nuts Seeds', category: 'candy', price: 89, tag: 'Nutty taste', desc: ' A tasty mix of nuts and seeds that is perfect for snacks.', img: "super-meal-nuts-seeds.jpg" },
+        ];
+
+
+        // Shopping Cart State
+        let cart = [];
+        let currentCategory = 'all';
+
+        // Initialize Product Rendering
+        window.onload = function() {
+            renderProducts(productsData);
+        };
+
+        // Router View Switcher
+        function switchPage(pageId) {
+            document.querySelectorAll('.page-view').forEach(view => {
+                view.classList.remove('active');
+            });
+            const target = document.getElementById(`page-${pageId}`);
+            if (target) {
+                target.classList.add('active');
+            }
+
+            // Update active state on Nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('data-target') === pageId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // Close mobile menu
+            document.getElementById('navLinks').classList.remove('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Render Shop Products
+       
+        function renderProducts(items) {
+            const grid = document.getElementById('productGrid');
+
+            if (!grid) return;
+
+            if (items.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align:center;">
+                        No matching sweets or drinks found.
+                    </div>`;
+                return;
+            }
+
+            grid.innerHTML = items.map(p => `
+                <div class="product-card">
+
+                    <div class="product-image"
+                        onclick="openQuickView(${p.id})">
+
+                        <span class="badge-tag">${p.tag}</span>
+
+                        <img src="${p.img}"
+                            alt="${p.name}"
+                            onerror="this.src='https://placehold.co/600x400?text=Product'">
+                    </div>
+
+                    <div class="product-info">
+                        <div>
+                            <h3 onclick="openQuickView(${p.id})">
+                                ${p.name}
+                            </h3>
+
+                            <p>${p.desc}</p>
+                        </div>
+
+                        <span class="price">₱${p.price}</span>
+                    </div>
+
+                    <div class="product-actions">
+
+                        <button class="add-cart-btn"
+                                onclick="addToCart(${p.id})">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            Add
+                        </button>
+
+                        <button class="quick-view-btn"
+                                onclick="openQuickView(${p.id})">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+
+                    </div>
+                </div>
+            `).join('');
+        }
+
+
+        // Filter and Search Logic
+        function filterProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = productsData.filter(p => {
+                const matchesCat = (currentCategory === 'all' || p.category === currentCategory);
+                const matchesSearch = p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query);
+                return matchesCat && matchesSearch;
+            });
+            renderProducts(filtered);
+        }
+
+        function setCategory(cat, btnElem) {
+            currentCategory = cat;
+            if (btnElem) {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btnElem.classList.add('active');
+            }
+            filterProducts();
+        }
+
+        // Shopping Cart Logic
+        const cartModal = document.getElementById('cartModal');
+        document.getElementById('openCartBtn').addEventListener('click', () => cartModal.classList.add('active'));
+        document.getElementById('closeCartBtn').addEventListener('click', () => cartModal.classList.remove('active'));
+        cartModal.addEventListener('click', (e) => {
+            if (e.target === cartModal) cartModal.classList.remove('active');
+        });
+
+        // Mobile Nav Toggle
+        document.getElementById('mobileToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+
+       
+        function addToCart(productId) {
+
+            const product = productsData.find(p => p.id === productId);
+
+            if (!product) return;
+
+            const existing = cart.find(item => item.id === productId);
+
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    title: product.name,
+                    price: product.price,
+                    image: product.img,
+                    qty: 1
+                });
+            }
+
+            updateCartUI();
+
+            showToast(`Added "${product.name}" to cart!`);
+        }
+
+        function updateCartUI() {
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            document.getElementById('cartCount').textContent = totalItems;
+            document.getElementById('cartHeaderCount').textContent = totalItems;
+            document.getElementById('cartTotal').textContent = `₱${totalPrice}`;
+
+            // Update Free Shipping Progress (Threshold: ₱1,000)
+            const threshold = 1000;
+            const pct = Math.min(100, Math.round((totalPrice / threshold) * 100));
+            document.getElementById('shippingBarFill').style.width = `${pct}%`;
+            document.getElementById('shippingPct').textContent = `${pct}%`;
+            
+            if (totalPrice >= threshold) {
+                document.getElementById('shippingText').textContent = "🎉 You unlocked FREE delivery!";
+            } else {
+                document.getElementById('shippingText').textContent = `Add ₱${threshold - totalPrice} more for FREE delivery!`;
+            }
+
+            const container = document.getElementById('cartItemsContainer');
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-cart-msg">
+                        <i class="fa-solid fa-basket-shopping" style="font-size: 40px; margin-bottom: 10px; opacity: 0.5;"></i>
+                        <p>Your cart is currently empty.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = cart.map((item, index) => `
+                <div class="cart-item">
+                    <img src="${item.image}" alt="${item.title}" class="cart-item-img">
+                    <div class="cart-item-info">
+                        <div class="cart-item-title">${item.title}</div>
+                        <div class="cart-item-price">₱${item.price}</div>
+                        <div class="qty-controls">
+                            <button class="qty-btn" onclick="changeQty(${index}, -1)">-</button>
+                            <span class="qty-count">${item.qty}</span>
+                            <button class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+                        </div>
+                    </div>
+                    <button class="remove-item-btn" onclick="removeItem(${index})">
+                        <i class="fa-solid fa-trash-can"></i> Remove
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function changeQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function removeItem(index) {
+            const removedItem = cart[index];
+            cart.splice(index, 1);
+            updateCartUI();
+            showToast(`"${removedItem.title}" removed from cart!`);
+        }
+
+        // Quick View Modal
+        
+        function openQuickView(productId) {
+
+            const product = productsData.find(p => p.id === productId);
+
+            if (!product) return;
+
+            const content = document.getElementById('qvContent');
+
+            content.innerHTML = `
+                <img src="${product.img}"
+                    alt="${product.name}"
+                    class="qv-img">
+
+                <div class="qv-details">
+                    <h3>${product.name}</h3>
+                    <p>${product.desc}</p>
+
+                    <span class="price">₱${product.price}</span>
+
+                    <button class="add-cart-btn"
+                        onclick="addToCart(${product.id}); closeQuickView();">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        Add to Cart
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('quickViewModal') .classList.add('active');
+        }
+
+
+        function closeQuickView() {
+            document.getElementById('quickViewModal').classList.remove('active');
+        }
+
+        // Checkout Receipt Modal
+        function openCheckoutModal() {
+            if (cart.length === 0) {
+                showToast("Your cart is empty!");
+                return;
+            }
+
+            const itemsContainer = document.getElementById('receiptItems');
+            const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            itemsContainer.innerHTML = cart.map(item => `
+                <div class="receipt-item-row">
+                    <span>${item.qty}x ${item.title}</span>
+                    <span>₱${item.price * item.qty}</span>
+                </div>
+            `).join('');
+
+            document.getElementById('receiptTotal').textContent = `₱${total}`;
+            cartModal.classList.remove('active');
+            document.getElementById('checkoutModal').classList.add('active');
+
+            // Reset cart state after order completion
+            cart = [];
+            updateCartUI();
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').classList.remove('active');
+        }
+
+        // Toast Popup Notification
+        function showToast(msg) {
+            const toast = document.getElementById('toastNotification');
+            document.getElementById('toastMessage').textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // Form Validation & Submission
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('fullName').value;
+            showToast(`Thank you, ${name}! Your message is ready.`);
+            document.getElementById('contactForm').reset();
+        }
+    </script>
+</body>
+</html>
